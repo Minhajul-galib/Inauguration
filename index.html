@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inauguration All Broadcasters Community</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+   
+    <div class="container">
+
+        <div class="child">
+            <img src="assets/img/logo.png" width="250px" alt="">
+            <img src="assets/img/text.png" width="60%" alt="">
+            <button class="btn" id="celebrationBtn">Inauguration</button>
+            <img src="assets/img/an.png" width="190px" alt="Inauguration">
+        </div>
+        <div class="child-2 left-side"></div>
+        <div class="child-2 right-side"></div>
+        <div id="celebrationGifs" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1000;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                <button onclick="window.location.href='https://www.allbroadcasterscommunity.org/';" class="btn">
+                    Let's Visit Our Website
+                </button>
+            </div>
+        </div>
+        <audio id="celebrationAudio" src="assets/img/audio.mp3" loop></audio>
+    </div>
+</body>
+
+<script>
+    document.getElementById('celebrationBtn').addEventListener('click', function() {
+        // Show celebration GIFs
+        showGifs();
+        
+        // Get the child-2 elements
+        const leftSide = document.querySelector('.left-side');
+        const rightSide = document.querySelector('.right-side');
+        
+        // Add active class to trigger animation
+        leftSide.classList.add('active');
+        rightSide.classList.add('active');
+        
+        // Show the celebration divs
+        leftSide.style.display = 'block';
+        rightSide.style.display = 'block';
+        
+        // Play audio after 1 second delay
+        setTimeout(() => {
+            const audio = document.getElementById('celebrationAudio');
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        }, 1000);
+    });
+
+    function showGifs() {
+        document.getElementById('celebrationGifs').style.display = 'block';
+    }
+
+    function hideGifs() {
+        document.getElementById('celebrationGifs').style.display = 'none';
+    }
+</script>
+</html>
